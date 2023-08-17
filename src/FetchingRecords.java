@@ -16,12 +16,20 @@ public class FetchingRecords {
 
             Statement stmt = con.createStatement();
             System.out.println("Statement Created");
+
+            //fetching the records from table
             ResultSet rs = stmt.executeQuery("select * from college.students");
             while(rs.next())
             {
               System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));  
             }
             
+            
+            //insert record into table
+            /*stmt.executeUpdate("insert into students(s_id,name,address,class_name,subject)values(1008,'Omkar','Old Panvel','F.Y.Bs.IT','Java')");
+            System.out.println("Record Inserted Sucess...");*/
+            stmt.close();
+            con.close();
 
             
         } catch (Exception e) 
